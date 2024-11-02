@@ -36,7 +36,7 @@ html, body {
     top: 20px;
     right: 20px;
     background-color: #8BC9D1;
-    color: white;
+    color: #000000;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -50,6 +50,7 @@ html, body {
 
 .night-mode .mode-switch {
     background-color: #34495e;
+    color: #ffffff;
 }
 
 .night-mode .mode-switch:hover {
@@ -162,7 +163,7 @@ html, body {
 /* Buttons */
 .signup-form button, .login-form button {
     background-color: #8BC9D1;
-    color: white;
+    color: #0F0F0F;
     border: none;
     padding: 12px 24px;
     border-radius: 6px;

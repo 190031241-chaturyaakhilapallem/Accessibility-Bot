@@ -110,9 +110,10 @@ const TextToSpeech = () => {
           placeholder="Enter text here"
           value={text}
           onChange={handleTextChange}
+          aria-label="Enter text here"
         />
         {text && (
-          <FaTimes className="clear-text" onClick={handleClearText} />
+          <FaTimes className="clear-text" onClick={handleClearText} aria-label="Clear text"/>
         )}
       </div>
 
@@ -120,7 +121,7 @@ const TextToSpeech = () => {
       {uploadedFileName && (
         <div className="file-info">
           <span>{uploadedFileName}</span>
-          <FaTimes className="clear-file" onClick={handleClearFile} />
+          <FaTimes className="clear-file" onClick={handleClearFile} aria-label="Clear uploaded file"/>
         </div>
       )}
 
@@ -131,20 +132,21 @@ const TextToSpeech = () => {
           type="file"
           onChange={handleFileUpload}
           accept=".txt"
+          aria-label="Upload text file"
         />
       </div>
 
       <div className="controls">
-        <button onClick={handleSpeak} disabled={isSpeaking && !isPaused}>Convert to Speech</button>
+        <button onClick={handleSpeak} disabled={isSpeaking && !isPaused}aria-label="Convert text to speech">Convert to Speech</button>
 
         {/* Show either Pause or Play/Resume icon based on the speaking state */}
         {isSpeaking || isPaused ? (
-          <button onClick={handleTogglePauseResume}>
+          <button onClick={handleTogglePauseResume} aria-label={isPaused ? 'Resume speech' : 'Pause speech'}>
             {isPaused ? <FaPlay /> : <FaPause />}
           </button>
         ) : null}
 
-        <button onClick={handleStop}>Stop</button>
+        <button onClick={handleStop} aria-label="Stop speech">Stop</button>
       </div>
 
       <div className="volume-control">
@@ -157,6 +159,7 @@ const TextToSpeech = () => {
           value={volume}
           onChange={handleVolumeChange}
           className="volume-slider"
+          aria-label="Adjust volume"
         />
       </div>
     </div>

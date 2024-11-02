@@ -211,9 +211,8 @@ const Dashboard = ({ showSidebar }) => {
                         <li onClick={() => navigate('/text-to-speech')}>Text to Speech</li>
                         <li onClick={() => navigate('/speech-to-text')}>Speech to Text</li>
                         <li onClick={() => (window.location.href="https://ml-bot.vercel.app/")}>MultiLanguage</li>
-                        <li>Image to Text</li>
-                        <li>Summarize the Text</li>
-                        <li>Multi Language</li>
+                        <li onClick={() => navigate('/image-to-text')}>Image to Text</li>
+                        <li onClick={() => navigate('/SummarizetheText')}>Summarize the Text</li>
                         <li>Paraphrase or Simple Text</li>
                         <li>Word Dictionary: Look up words</li>
                     </ul>
@@ -223,7 +222,7 @@ const Dashboard = ({ showSidebar }) => {
             {/* Main Chat Input Area */}
             <div className="chat-input-box-container" style={{ fontSize: `${zoomLevel * 1.00}rem`, maxHeight: '15%' }}>
                 <div className="chat-input-box">
-                    <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileUpload} />
+                    <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileUpload} aria-label="Upload File"/>
                     <button className="icon-btn upload-btn" onClick={handleUploadIconClick}>
                         <img src={uploadIcon} alt="Upload File" />
                     </button>
@@ -232,6 +231,7 @@ const Dashboard = ({ showSidebar }) => {
                         placeholder="Message the bot and chat here"
                         value={chatMessage}
                         onChange={(e) => setChatMessage(e.target.value)}
+                        aria-label="Chat message input"
                     />
                     <button className="icon-btn voice-btn" onClick={handleVoiceInput}>
                         <img src={voiceIcon} alt="Voice Message" />

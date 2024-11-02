@@ -49,14 +49,19 @@ const LoginForm = ({ isNightMode }) => {
             <form className={`signup-form ${isNightMode ? 'night-mode' : 'bright-mode'}`} onSubmit={handleLogin}>
                 <h2>Enter your details to Login</h2>
                 
+                <label htmlFor="email">Email ID</label>
                 <input 
+                    id="email"
                     type="email" 
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)} 
                     placeholder="Email ID" 
                     required 
                 />
+                
+                <label htmlFor="password">Enter Your Password</label>
                 <input 
+                    id="password"
                     type="password" 
                     value={password} 
                     onChange={(e) => setPassword(e.target.value)} 

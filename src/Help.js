@@ -157,6 +157,7 @@ const HelpPage = () => {
                         onChange={(e) => setChatMessage(e.target.value)}
                         placeholder="Type your message here"
                         className="chat-input"
+                        aria-label="Send"
                     />
                     <button type="submit" className="chat-submit-btn">Send</button>
                 </form>
@@ -173,6 +174,7 @@ const HelpPage = () => {
                             onChange={(e) => setFeedback(e.target.value)}
                             placeholder="We value your feedback. Please share your thoughts."
                             className="feedback-input"
+                            aria-label= "We value your feedback. Please share your thoughts."
                             required
                         />
 
@@ -204,7 +206,7 @@ const HelpPage = () => {
             <div className="help-box contact-support-section">
                 <h3>Contact Support</h3>
                 <p>If you need further assistance, feel free to reach out to our support team:</p>
-                <p>Email: <a href="mailto:accessibilitybotteam@gmail.com"><strong>accessibilitybotteam@gmail.com</strong></a></p>
+                <p>Email: <a href="mailto:accessibilitybotteam@gmail.com"><strong className="email-link">accessibilitybotteam@gmail.com</strong></a></p>
             </div>
         </div>
     );

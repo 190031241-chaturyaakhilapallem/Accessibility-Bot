@@ -67,6 +67,7 @@ const SpeechToText = () => {
         placeholder="Your speech will be converted to text here"
         value={text}
         readOnly
+        aria-label="Your speech will be converted to text here"
       />
 
       {text && (

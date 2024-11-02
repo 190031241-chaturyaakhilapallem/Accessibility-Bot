@@ -9,6 +9,8 @@ import ChangePassword from './ChangePassword';
 import DeleteAccount from './DeleteAccount'; 
 import TextToSpeech from './TextToSpeech';  
 import SpeechToText from './SpeechToText';  
+import ImageToText from './ImageToText';
+import SummarizetheText from './SummarizetheText';
 import './style.css';  
 import botImage from './assets/bot.jpeg';  
 
@@ -61,6 +63,12 @@ function App() {
                 
                 {/* Text to Speech Page */}
                 <Route path="/text-to-speech" element={<TextToSpeech />} />  
+
+                {/* Image to Text Page */}
+                <Route path="/image-to-text" element={<ImageToText />} />
+                
+                {/* Summarize the Text */}
+                <Route path="/SummarizetheText" element={<SummarizetheText />} />
                 
                 {/* Account Pages */}
                 <Route path="/view-account" element={<ViewAccountInfo isNightMode={isNightMode} />} />
