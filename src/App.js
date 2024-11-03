@@ -11,6 +11,7 @@ import TextToSpeech from './TextToSpeech';
 import SpeechToText from './SpeechToText';  
 import ImageToText from './ImageToText';
 import SummarizetheText from './SummarizetheText';
+import ParaphraseOrSimpleText from './ParaphraseOrSimpleText';
 import './style.css';  
 import botImage from './assets/bot.jpeg';  
 
@@ -69,6 +70,9 @@ function App() {
                 
                 {/* Summarize the Text */}
                 <Route path="/SummarizetheText" element={<SummarizetheText />} />
+
+                {/* Paraphrase the Text */}
+                <Route path="/paraphrase" element={<ParaphraseOrSimpleText />} />
                 
                 {/* Account Pages */}
                 <Route path="/view-account" element={<ViewAccountInfo isNightMode={isNightMode} />} />

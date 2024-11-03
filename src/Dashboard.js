@@ -111,6 +111,7 @@ const Dashboard = ({ showSidebar }) => {
     const handleLogout = () => {
         navigate('/login');
     };
+    
 
     useEffect(() => {
         const handleWindowBlur = () => {
@@ -213,7 +214,7 @@ const Dashboard = ({ showSidebar }) => {
                         <li onClick={() => (window.location.href="https://ml-bot.vercel.app/")}>MultiLanguage</li>
                         <li onClick={() => navigate('/image-to-text')}>Image to Text</li>
                         <li onClick={() => navigate('/SummarizetheText')}>Summarize the Text</li>
-                        <li>Paraphrase or Simple Text</li>
+                        <li onClick={() => navigate('/paraphrase')}>Paraphrase or Simple Text</li>
                         <li>Word Dictionary: Look up words</li>
                     </ul>
                 </div>
