@@ -109,3 +109,13 @@
   max-width: 200px; /* Ensure it doesn’t overflow */
   background-color: black;
 }
+
+input[type="file"] {
+  background-color: #0082ca; /* Darker blue for better contrast */
+  color: #ffffff; /* White text for better contrast */
+  border: 1px solid #005a8b; /* Border to define edges */
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}

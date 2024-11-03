@@ -9,22 +9,19 @@ const TextToSpeech = () => {
   const [volume, setVolume] = useState(1); // Volume control (1 = 100%)
   const [utterance, setUtterance] = useState(null); // Current speech utterance
   const [uploadedFileName, setUploadedFileName] = useState(''); // Store the file name
-  const [speechSynthesisInstance] = useState(window.speechSynthesis);
   const [fileInputKey, setFileInputKey] = useState(''); // Track key for resetting file input
+  const speechSynthesisInstance = window.speechSynthesis;
 
-  // Apply volume change on the utterance when volume is adjusted
   useEffect(() => {
     if (utterance && isSpeaking) {
       utterance.volume = volume; // Ensure the volume is updated for the current utterance
     }
   }, [volume, utterance, isSpeaking]);
 
-  // Handle the text input change
   const handleTextChange = (e) => {
     setText(e.target.value);
   };
 
-  // Handle file upload and set the file text to the input field
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -37,21 +34,18 @@ const TextToSpeech = () => {
     }
   };
 
-  // Clear the uploaded file and reset the file input
   const handleClearFile = () => {
     setUploadedFileName(''); // Remove the file name display
     setText(''); // Clear the text from the text box too
     setFileInputKey(Date.now()); // Reset file input by changing its key
   };
 
-  // Start speech synthesis
   const handleSpeak = () => {
     if (text.trim() === '') {
       alert('Please enter text or upload a file.');
       return;
     }
 
-    // Stop any previous utterances
     speechSynthesisInstance.cancel();
 
     const newUtterance = new SpeechSynthesisUtterance(text);
@@ -68,35 +62,29 @@ const TextToSpeech = () => {
     setIsPaused(false);
   };
 
-  // Toggle between pause and resume
   const handleTogglePauseResume = () => {
     if (isPaused) {
-      // Resume speech
       speechSynthesisInstance.resume();
       setIsPaused(false);
       setIsSpeaking(true);
     } else {
-      // Pause speech
       speechSynthesisInstance.pause();
       setIsPaused(true);
       setIsSpeaking(false);
     }
   };
 
-  // Stop/cancel speech synthesis
   const handleStop = () => {
     speechSynthesisInstance.cancel();
     setIsSpeaking(false);
     setIsPaused(false);
   };
 
-  // Clear the text
   const handleClearText = () => {
     setText('');
     handleStop();
   };
 
-  // Adjust volume
   const handleVolumeChange = (e) => {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume); // Set volume for new utterances
@@ -117,7 +105,6 @@ const TextToSpeech = () => {
         )}
       </div>
 
-      {/* Display the uploaded file name with an "X" button to clear */}
       {uploadedFileName && (
         <div className="file-info">
           <span>{uploadedFileName}</span>
@@ -126,7 +113,6 @@ const TextToSpeech = () => {
       )}
 
       <div className="upload-container">
-        {/* Reset the file input by updating the key */}
         <input
           key={fileInputKey} // Add key to reset input on file clear
           type="file"
@@ -137,9 +123,10 @@ const TextToSpeech = () => {
       </div>
 
       <div className="controls">
-        <button onClick={handleSpeak} disabled={isSpeaking && !isPaused}aria-label="Convert text to speech">Convert to Speech</button>
+        <button onClick={handleSpeak} disabled={isSpeaking && !isPaused} aria-label="Convert text to speech">
+          Convert to Speech
+        </button>
 
-        {/* Show either Pause or Play/Resume icon based on the speaking state */}
         {isSpeaking || isPaused ? (
           <button onClick={handleTogglePauseResume} aria-label={isPaused ? 'Resume speech' : 'Pause speech'}>
             {isPaused ? <FaPlay /> : <FaPause />}
