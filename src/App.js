@@ -20,13 +20,15 @@ function App() {
     const navigate = useNavigate();  // Navigate to handle redirects
     const location = useLocation();
 
-    // Check if user is logged in and handle redirection
-    useEffect(() => {
-        const isLoggedIn = localStorage.getItem('isLoggedIn');
-        if (!isLoggedIn && location.pathname !== '/signup') {
-            navigate('/signup');
-        }
-    }, [navigate, location.pathname]);
+    // Only redirect to signup if not logged in and on a protected route (like /dashboard)
+useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const publicRoutes = ['/signup', '/login'];
+    
+    if (!isLoggedIn && !publicRoutes.includes(location.pathname)) {
+        navigate('/signup');
+    }
+}, [navigate, location.pathname]);
     
 
     const toggleNightMode = () => {
@@ -49,7 +51,7 @@ function App() {
 
             <Routes>
                 {/* Redirect from root to signup */}
-                <Route path="/" element={<Navigate to="/signup" />} />
+                <Route path="/" element={<Navigate to="/login" />} />
                 <Route path="/signup" element={<SignUpForm isNightMode={isNightMode} />} />
                 <Route path="/login" element={<LoginForm isNightMode={isNightMode} />} />
                 

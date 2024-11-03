@@ -3,6 +3,8 @@ import './style.css';
 import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { app } from './firebase';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 const LoginForm = ({ isNightMode }) => {
     const [email, setEmail] = useState('');
@@ -77,7 +79,7 @@ const LoginForm = ({ isNightMode }) => {
                     Forgot Your Password?
                 </p>
                 
-                <p>Don't have an account? <a href="/signup">Sign up here</a></p>
+                <p>Don't have an account? <Link to="/signup">Sign up here</Link></p>
             </form>
         </div>
     );

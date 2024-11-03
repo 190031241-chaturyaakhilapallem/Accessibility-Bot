@@ -4,6 +4,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { app } from './firebase';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SignUpForm = ({ isNightMode }) => {
     const [userid, setUserID] = useState('');
@@ -98,7 +99,7 @@ const SignUpForm = ({ isNightMode }) => {
                 <button type="submit" disabled={loading}>
                     {loading ? 'Registering...' : 'SIGN UP'}
                 </button>
-                <p>Already have an account? <a href="/login">Login here</a></p>
+                <p>Already have an account? <Link to="/login">Login here</Link></p>
             </form>
         </div>
     );
