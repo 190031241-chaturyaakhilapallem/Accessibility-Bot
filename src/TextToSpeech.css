@@ -111,11 +111,19 @@
 }
 
 input[type="file"] {
-  background-color: #0082ca; /* Darker blue for better contrast */
-  color: #ffffff; /* White text for better contrast */
-  border: 1px solid #005a8b; /* Border to define edges */
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-size: 14px;
+  background-color: #006bb3; /* Darker shade of blue */
+  color: #ffffff; /* Ensure text is white for readability */
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px; /* Adjust font size if needed */
+  border: none;
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: #006bb3; /* Button matches input background */
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
   cursor: pointer;
 }
