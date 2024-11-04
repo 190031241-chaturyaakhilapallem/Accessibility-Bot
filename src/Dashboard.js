@@ -211,11 +211,11 @@ const Dashboard = ({ showSidebar }) => {
                     <ul>
                         <li onClick={() => navigate('/text-to-speech')}>Text to Speech</li>
                         <li onClick={() => navigate('/speech-to-text')}>Speech to Text</li>
-                        <li onClick={() => (window.location.href="https://ml-bot.vercel.app/")}>MultiLanguage</li>
+                        <li onClick={() => (window.location.href="https://gemini-clone-multilanguage.vercel.app/")}>MultiLanguage</li>
                         <li onClick={() => navigate('/image-to-text')}>Image to Text</li>
-                        <li onClick={() => navigate('/SummarizetheText')}>Summarize the Text</li>
-                        <li onClick={() => navigate('/paraphrase')}>Paraphrase or Simple Text</li>
-                        <li>Word Dictionary: Look up words</li>
+                        <li onClick={() => (window.location.href="https://gemini-clone-summarizethetext.vercel.app/")}>SummarizetheText</li>
+                        <li onClick={() => (window.location.href="https://gemini-clone-paraphrasethetext.vercel.app/")}>Paraphrase or Simple Text</li>
+                        <li onClick={() => (window.location.href="https://gemini-clone-interactivedictionary.vercel.app/")}>Word Dictionary: Look up words</li>
                     </ul>
                 </div>
             )}
