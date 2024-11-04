@@ -213,7 +213,7 @@ const Dashboard = ({ showSidebar }) => {
                         <li onClick={() => navigate('/speech-to-text')}>Speech to Text</li>
                         <li onClick={() => (window.location.href="https://gemini-clone-multilanguage.vercel.app/")}>MultiLanguage</li>
                         <li onClick={() => navigate('/image-to-text')}>Image to Text</li>
-                        <li onClick={() => (window.location.href="https://gemini-clone-summarizethetext.vercel.app/")}>SummarizetheText</li>
+                        <li onClick={() => (window.location.href="https://gemini-clone-summarizethetext.vercel.app/")}>Summarize theText</li>
                         <li onClick={() => (window.location.href="https://gemini-clone-paraphrasethetext.vercel.app/")}>Paraphrase or Simple Text</li>
                         <li onClick={() => (window.location.href="https://gemini-clone-interactivedictionary.vercel.app/")}>Word Dictionary: Look up words</li>
                     </ul>
