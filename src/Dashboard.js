@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import './Dashboard.css';  
 import botImage from './assets/bot.jpeg';  
 import homeIcon from './assets/icons8-home-52.png';  
@@ -6,10 +6,8 @@ import helpIcon from './assets/icons8-help-50.png';
 import zoomInIcon from './assets/icons8-zoom-in-48.png';  
 import zoomOutIcon from './assets/icons8-zoom-out-50.png';  
 import accountIcon from './assets/icons8-account-50.png';  
-import uploadIcon from './assets/icons8-upload-48.png';  
 import voiceIcon from './assets/icons8-microphone-48.png';  
 import sendIcon from './assets/icons8-send-48.png';  
-import cancelIcon from './assets/icons8-cancel-24.png';  
 import nightModeIcon from './assets/icons8-night-mode-50.png';  
 import brightModeIcon from './assets/icons8-bright-button-48.png';  
 import logoutIcon from './assets/icons8-logout-50.png';  
@@ -20,16 +18,16 @@ const Dashboard = ({ showSidebar }) => {
     const [zoomLevel, setZoomLevel] = useState(100);  
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);  
     const [isAccountDropdownOpen, setIsAccountDropdownOpen] = useState(false);  
-    const [fileName, setFileName] = useState('');  
     const [chatMessage, setChatMessage] = useState('');  // Chat input message state
     const [isRecording, setIsRecording] = useState(false);  // Voice recording state
-    const fileInputRef = useRef(null);  
+    const recognitionRef = useRef(null);
     const navigate = useNavigate();
 
     // Toggle Night/Bright Mode
     const toggleNightMode = () => {
         setIsNightMode(!isNightMode);
     };
+
 
     // Zoom functions
     const handleZoomIn = () => {
@@ -44,56 +42,97 @@ const Dashboard = ({ showSidebar }) => {
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
     const toggleAccountDropdown = () => setIsAccountDropdownOpen(!isAccountDropdownOpen);
 
-    // File upload handling
-    const handleFileUpload = (e) => {
-        const file = e.target.files[0];
-        if (file) setFileName(file.name);
+    // Toggle Microphone Listening
+    const handleVoiceInputToggle = () => {
+        if (isRecording) {
+            recognitionRef.current?.stop();
+            setIsRecording(false);
+        } else {
+            startListening();
+        }
     };
 
-    const handleUploadIconClick = () => {
-        fileInputRef.current.click();
-    };
-
-    // Cancel file upload
-    const handleCancelUpload = () => {
-        setFileName(''); // Clear file name
-        fileInputRef.current.value = ''; // Reset file input
-    };
-
-    // Voice recognition handling using Web Speech API
-    const handleVoiceInput = () => {
+    // Start listening with Speech Recognition
+    const startListening = () => {
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         if (!SpeechRecognition) {
             alert("Speech Recognition is not supported in this browser. Please try using Chrome.");
             return;
         }
-    
+
+        // Stop any ongoing speech synthesis
+        window.speechSynthesis.cancel();
+
         const recognition = new SpeechRecognition();
         recognition.interimResults = true;
         recognition.lang = 'en-US';
-    
+
         recognition.onstart = () => {
             setIsRecording(true);
+            provideVoiceOptions();
         };
-    
+
         recognition.onresult = (event) => {
             const transcript = Array.from(event.results)
-                .map(result => result[0])
-                .map(result => result.transcript)
+                .map(result => result[0].transcript)
                 .join('');
             setChatMessage(transcript);
+
+            if (event.results[0].isFinal) {
+                handleNavigationCommand(transcript.toLowerCase());
+            }
         };
-    
+
         recognition.onerror = (event) => {
             console.error("Speech Recognition Error:", event.error);
             setIsRecording(false);
         };
-    
-        recognition.onend = () => {
-            setIsRecording(false);
-        };
-    
+
+        recognition.onend = () => setIsRecording(false);
+
         recognition.start();
+        recognitionRef.current = recognition;
+    };
+
+    // Provide voice options to the user
+    const provideVoiceOptions = () => {
+        const optionsMessage = new SpeechSynthesisUtterance(
+            "Please give a command to navigate. The options for commands are help, toggle mode, text magnification, " +
+            "view account, change password, delete account, 7 for logout, " +
+            "For sidebar options, say Text to Speech, Speech to Text, Image to Text, Summarize the Text, MultiLanguage, Paraphrase the Text, or Dictionary."
+        );
+        window.speechSynthesis.speak(optionsMessage);
+    };
+
+    // Handle navigation based on voice command
+    const handleNavigationCommand = (command) => {
+        window.speechSynthesis.cancel(); // Stop any ongoing speech
+
+        let destination;
+        if (command.includes("help")) destination = '/help';
+        else if (command.includes("toggle mode")) toggleNightMode();
+        else if (command.includes("text magnification")) toggleDropdown();
+        else if (command.includes("view account")) destination = '/view-account';
+        else if (command.includes("change password")) destination = '/change-password';
+        else if (command.includes("delete account")) destination = '/delete-account';
+        else if (command.includes("logout")) destination = '/login';
+        else if (command.includes("text to speech")) destination = '/text-to-speech';
+        else if (command.includes("speech to text")) destination = '/speech-to-text';
+        else if (command.includes("image to text")) destination = '/image-to-text';
+        else if (command.includes("multi language") || command.includes("multi language")) destination = '/https://gemini-clone-summarizethetext.vercel.app/';
+        else if (command.includes("summarization") || command.includes("summarize")) destination = '/https://gemini-clone-summarizethetext.vercel.app/';
+        else if (command.includes("paraphrasing") || command.includes("paraphrase")) destination = '/https://gemini-clone-paraphrasethetext.vercel.app/';
+        else if (command.includes("dictionary")) destination = 'https://gemini-clone-interactivedictionary.vercel.app/';
+        
+        if (destination) {
+            const confirmMessage = new SpeechSynthesisUtterance("Yeah, Here is your requested page.");
+            window.speechSynthesis.speak(confirmMessage);
+            navigate(destination);
+        } else {
+            const retryMessage = new SpeechSynthesisUtterance("I did not understand. Please try again.");
+            window.speechSynthesis.speak(retryMessage);
+            provideVoiceOptions();
+        }
     };
 
     // Send message handler
@@ -223,10 +262,6 @@ const Dashboard = ({ showSidebar }) => {
             {/* Main Chat Input Area */}
             <div className="chat-input-box-container" style={{ fontSize: `${zoomLevel * 1.00}rem`, maxHeight: '15%' }}>
                 <div className="chat-input-box">
-                    <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileUpload} aria-label="Upload File"/>
-                    <button className="icon-btn upload-btn" onClick={handleUploadIconClick}>
-                        <img src={uploadIcon} alt="Upload File" />
-                    </button>
                     <input
                         type="text"
                         placeholder="Message the bot and chat here"
@@ -234,24 +269,13 @@ const Dashboard = ({ showSidebar }) => {
                         onChange={(e) => setChatMessage(e.target.value)}
                         aria-label="Chat message input"
                     />
-                    <button className="icon-btn voice-btn" onClick={handleVoiceInput}>
+                    <button className="icon-btn voice-btn" onClick={handleVoiceInputToggle}>
                         <img src={voiceIcon} alt="Voice Message" />
                     </button>
                     <button className="icon-btn send-btn" onClick={handleSendMessage}>
                         <img src={sendIcon} alt="Send Message" />
                     </button>
                 </div>
-
-                {/* Cancel upload and show file name */}
-                {fileName && (
-                    <div>
-                        <p>Uploaded file: {fileName}</p>
-                        <button className="icon-btn cancel-btn" onClick={handleCancelUpload}>
-                            <img src={cancelIcon} alt="Cancel Upload" />
-                        </button>
-                    </div>
-                )}
-
                 {isRecording && <p>Recording voice...</p>}
             </div>
         </div>
