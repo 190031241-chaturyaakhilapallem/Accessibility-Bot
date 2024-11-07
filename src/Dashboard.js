@@ -119,10 +119,10 @@ const Dashboard = ({ showSidebar }) => {
         else if (command.includes("text to speech")) destination = '/text-to-speech';
         else if (command.includes("speech to text")) destination = '/speech-to-text';
         else if (command.includes("image to text")) destination = '/image-to-text';
-        else if (command.includes("multi language") || command.includes("multi language")) destination = '/https://gemini-clone-summarizethetext.vercel.app/';
-        else if (command.includes("summarization") || command.includes("summarize")) destination = '/https://gemini-clone-summarizethetext.vercel.app/';
-        else if (command.includes("paraphrasing") || command.includes("paraphrase")) destination = '/https://gemini-clone-paraphrasethetext.vercel.app/';
-        else if (command.includes("dictionary")) destination = 'https://gemini-clone-interactivedictionary.vercel.app/';
+        else if (command.includes("multi language") || command.includes("multi language")) window.open('https://accessibilitybot-multilanguage.vercel.app/', '_blank');
+        else if (command.includes("summarization") || command.includes("summarize")) window.open('https://accessibilitybot-summarizethetext.vercel.app/', '_blank');
+        else if (command.includes("paraphrasing") || command.includes("paraphrase")) window.open('https://accessibilitybot-paraphrase.vercel.app/', '_blank');
+        else if (command.includes("dictionary")) window.open('https://accessibilitybot-intercativedictionary.vercel.app/', '_blank');
         
         if (destination) {
             const confirmMessage = new SpeechSynthesisUtterance("Yeah, Here is your requested page.");
@@ -250,11 +250,11 @@ const Dashboard = ({ showSidebar }) => {
                     <ul>
                         <li onClick={() => navigate('/text-to-speech')}>Text to Speech</li>
                         <li onClick={() => navigate('/speech-to-text')}>Speech to Text</li>
-                        <li onClick={() => (window.location.href="https://gemini-clone-multilanguage.vercel.app/")}>MultiLanguage</li>
+                        <li onClick={() => (window.location.href="https://accessibilitybot-multilanguage.vercel.app/")}>MultiLanguage</li>
                         <li onClick={() => navigate('/image-to-text')}>Image to Text</li>
-                        <li onClick={() => (window.location.href="https://gemini-clone-summarizethetext.vercel.app/")}>Summarize theText</li>
-                        <li onClick={() => (window.location.href="https://gemini-clone-paraphrasethetext.vercel.app/")}>Paraphrase or Simple Text</li>
-                        <li onClick={() => (window.location.href="https://gemini-clone-interactivedictionary.vercel.app/")}>Word Dictionary: Look up words</li>
+                        <li onClick={() => (window.location.href="https://accessibilitybot-summarizethetext.vercel.app/")}>Summarize theText</li>
+                        <li onClick={() => (window.location.href="https://accessibilitybot-paraphrase.vercel.app/")}>Paraphrase or Simple Text</li>
+                        <li onClick={() => (window.location.href="https://accessibilitybot-intercativedictionary.vercel.app/")}>Word Dictionary: Look up words</li>
                     </ul>
                 </div>
             )}
