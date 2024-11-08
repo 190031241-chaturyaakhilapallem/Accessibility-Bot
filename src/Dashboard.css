@@ -79,7 +79,7 @@
     padding: 20px;
     width: 209px;
     height: auto; /* Remove the height calculation to make it fit the content */
-    max-height: 470px; /* Set a fixed maximum height */
+    max-height: 430px; /* Set a fixed maximum height */
     margin-top: 80px; /* Avoid overlap with navbar */
     position: fixed; /* Fixed to the side */
     top: 80px;
