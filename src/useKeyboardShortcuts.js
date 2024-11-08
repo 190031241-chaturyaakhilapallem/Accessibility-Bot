@@ -36,6 +36,16 @@ const useKeyboardShortcuts = (toggleNightMode) => {
       // Toggle Night Mode
       } else if (ctrlKey && key === 'm') {
         toggleNightMode(); // Toggle Night Mode
+      } else if (altKey && key === 'l') {
+        window.open('https://accessibilitybot-multilanguage.vercel.app/', '_blank'); // Multi-Language page
+      } else if (altKey && key === 'm') {
+        window.open('https://accessibilitybot-summarizethetext.vercel.app/', '_blank'); // Summarize the Text page
+      } else if (ctrlKey && key === 'p') {
+        window.open('https://accessibilitybot-paraphrase.vercel.app/', '_blank'); // Paraphrasing page
+      } else if (ctrlKey && key === 'd') {
+        window.open('https://accessibilitybot-intercativedictionary.vercel.app/', '_blank'); // Dictionary page
+      } else if (altKey && key === 'k') {
+        navigate('/keyboardshortcuts'); // Navigate to Keyboard Shortcuts Page
       }
     };
 

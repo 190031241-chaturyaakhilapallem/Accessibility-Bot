@@ -123,7 +123,9 @@ const Dashboard = ({ showSidebar }) => {
             destination = '/speech-to-text';
         } else if (command.includes("image to text")) {
             destination = '/image-to-text';
-        } else if (command.includes("multi-language") || command.includes("summarization") || command.includes("paraphrasing") || command.includes("dictionary")) {
+        } else if (command.includes("keyboard shortcuts")) {
+          destination = '/keyboardshortcuts';
+      } else if (command.includes("multi-language") || command.includes("summarization") || command.includes("paraphrasing") || command.includes("dictionary")) {
             const urls = {
                 "multi-language": 'https://accessibilitybot-multilanguage.vercel.app/',
                 "summarization": 'https://accessibilitybot-summarizethetext.vercel.app/',
@@ -237,9 +239,6 @@ const Dashboard = ({ showSidebar }) => {
                         <img src={logoutIcon} alt="Logout" className="nav-icon" />
                         LOGOUT
                     </div>
-                    <button className="icon-btn voice-btn" onClick={handleVoiceInputToggle}>
-                        <img src={voiceIcon} alt="Voice Command" />
-                    </button>
                 </div>
             </div>
 
@@ -252,7 +251,8 @@ const Dashboard = ({ showSidebar }) => {
                         <li onClick={() => navigate('/image-to-text')}>Image to Text</li>
                         <li onClick={() => window.location.href="https://accessibilitybot-summarizethetext.vercel.app/"}>Summarize the Text</li>
                         <li onClick={() => window.location.href="https://accessibilitybot-paraphrase.vercel.app/"}>Paraphrase or Simple Text</li>
-                        <li onClick={() => window.location.href="https://accessibilitybot-intercativedictionary.vercel.app/"}>Look up for Words: Dictionary</li>
+                        <li onClick={() => window.location.href="https://accessibilitybot-intercativedictionary.vercel.app/"}>Interactive Dictionary</li>
+                        <li onClick={() => navigate('/keyboardshortcuts')}>Keyboard Shortcuts</li>
                     </ul>
                 </div>
             )}
@@ -266,6 +266,9 @@ const Dashboard = ({ showSidebar }) => {
                         onChange={(e) => setChatMessage(e.target.value)}
                         aria-label="Chat message input"
                     />
+                    <button className="icon-btn voice-btn" onClick={handleVoiceInputToggle}>
+                        <img src={voiceIcon} alt="Voice Command" />
+                    </button>
                     <button className="icon-btn send-btn" onClick={handleSendMessage}>
                         <img src={sendIcon} alt="Send Message" />
                     </button>

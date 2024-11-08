@@ -15,6 +15,7 @@ import ParaphraseOrSimpleText from './ParaphraseOrSimpleText';
 import useKeyboardShortcuts from './useKeyboardShortcuts'; // Import the keyboard shortcuts hook
 import './style.css';  
 import botImage from './assets/bot.jpeg';  
+import KeyboardShortcuts from './KeyboardShortcuts';
 
 function App() {
     const [isNightMode, setIsNightMode] = useState(false);
@@ -79,6 +80,9 @@ useEffect(() => {
 
                 {/* Paraphrase the Text */}
                 <Route path="/paraphrase" element={<ParaphraseOrSimpleText />} />
+
+                {/* Keyboard Shortcuts */}
+                <Route path="/keyboardshortcuts" element={<KeyboardShortcuts />} />
                 
                 {/* Account Pages */}
                 <Route path="/view-account" element={<ViewAccountInfo isNightMode={isNightMode} />} />

@@ -77,9 +77,9 @@
 .sidebar {
     background-color: #FFFFFF;
     padding: 20px;
-    width: 200px;
+    width: 209px;
     height: auto; /* Remove the height calculation to make it fit the content */
-    max-height: 450px; /* Set a fixed maximum height */
+    max-height: 505px; /* Set a fixed maximum height */
     margin-top: 80px; /* Avoid overlap with navbar */
     position: fixed; /* Fixed to the side */
     top: 80px;
@@ -130,6 +130,7 @@
     bottom: 0;
     left: 225px; /* Adjusted to start after the sidebar */
     right: 100px; /* Leave some space on the right side */
+    margin-left: 5px;
     background-color: inherit;
     padding: 10px;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
