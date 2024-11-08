@@ -12,6 +12,7 @@ import SpeechToText from './SpeechToText';
 import ImageToText from './ImageToText';
 import SummarizetheText from './SummarizetheText';
 import ParaphraseOrSimpleText from './ParaphraseOrSimpleText';
+import useKeyboardShortcuts from './useKeyboardShortcuts'; // Import the keyboard shortcuts hook
 import './style.css';  
 import botImage from './assets/bot.jpeg';  
 
@@ -34,6 +35,9 @@ useEffect(() => {
     const toggleNightMode = () => {
         setIsNightMode(prevMode => !prevMode);
     };
+
+     // Apply keyboard shortcuts and pass toggleNightMode function
+     useKeyboardShortcuts(toggleNightMode);
 
     return (
         <div className={`app-container ${isNightMode ? 'night-mode' : 'bright-mode'}`}>

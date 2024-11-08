@@ -60,6 +60,7 @@ const ImageToText = () => {
         accept="image/*"
         onChange={handleImageUpload}
         disabled={isExtracting} // Disable input while extracting
+        aria-label="Upload an image to extract text"
       />
 
       {/* Display image preview and cancel button if an image is uploaded */}
