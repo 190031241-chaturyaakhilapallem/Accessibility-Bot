@@ -82,7 +82,25 @@ const Dashboard = ({ showSidebar }) => {
 
         let destination;
         let actionTaken = false;
-
+        const websiteMap = {
+          google: "https://www.google.com",
+          youtube: "https://www.youtube.com",
+          facebook: "https://www.facebook.com",
+          instagram: "https://www.instagram.com",
+          twitter: "https://www.twitter.com",
+          threads: "https://www.threads.net",
+          jira: "https://www.atlassian.com/software/jira",
+          figma: "https://www.figma.com",
+          github: "https://www.github.com",
+          vercel: "https://www.vercel.com"
+        };
+    
+        const siteName = Object.keys(websiteMap).find((site) => command.includes(site));
+        if (siteName && (command.includes("go to") || command.includes("navigate to") || command.includes("open"))) {
+          const url = websiteMap[siteName];
+          window.open(url, "_blank");
+          return;
+        }
         if (command.includes("help")) {
             destination = '/help';
         } else if (command.includes("toggle mode")) {
