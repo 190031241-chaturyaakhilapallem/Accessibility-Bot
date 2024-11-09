@@ -57,13 +57,13 @@ const useKeyboardShortcuts = (toggleNightMode) => {
       } else if (ctrlKey && key === 'm') {
         toggleNightMode(); // Toggle Night Mode
       } else if (altKey && key === 'l') {
-        window.open('https://accessibilitybot-multilanguage.vercel.app/', '_blank'); // Multi-Language page
+        window.open('https://accessibility-bot-multilang.vercel.app/', '_blank'); // Multi-Language page
       } else if (altKey && key === 'm') {
-        window.open('https://accessibilitybot-summarizethetext.vercel.app/', '_blank'); // Summarize the Text page
+        window.open('https://accessibility-bot-text-summarize.vercel.app/', '_blank'); // Summarize the Text page
       } else if (ctrlKey && key === 'p') {
-        window.open('https://accessibilitybot-paraphrase.vercel.app/', '_blank'); // Paraphrasing page
+        window.open('https://accessibility-bot-text-paraphrase.vercel.app/', '_blank'); // Paraphrasing page
       } else if (ctrlKey && key === 'd') {
-        window.open('https://accessibilitybot-intercativedictionary.vercel.app/', '_blank'); // Dictionary page
+        window.open('https://accessibility-bot-interactive-dictionary.vercel.app/', '_blank'); // Dictionary page
       } else if (altKey && key === 'k') {
         navigate('/keyboardshortcuts'); // Navigate to Keyboard Shortcuts Page
       }

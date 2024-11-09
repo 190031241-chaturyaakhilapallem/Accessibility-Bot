@@ -127,10 +127,10 @@ const Dashboard = ({ showSidebar }) => {
           destination = '/keyboardshortcuts';
       } else if (command.includes("multi-language") || command.includes("summarization") || command.includes("paraphrasing") || command.includes("dictionary")) {
             const urls = {
-                "multi-language": 'https://accessibilitybot-multilanguage.vercel.app/',
-                "summarization": 'https://accessibilitybot-summarizethetext.vercel.app/',
-                "paraphrasing": 'https://accessibilitybot-paraphrase.vercel.app/',
-                "dictionary": 'https://accessibilitybot-intercativedictionary.vercel.app/'
+                "multi-language": 'https://accessibility-bot-multilang.vercel.app/',
+                "summarization": 'https://accessibility-bot-text-summarize.vercel.app/',
+                "paraphrasing": 'https://accessibility-bot-text-paraphrase.vercel.app/',
+                "dictionary": 'https://accessibility-bot-interactive-dictionary.vercel.app/'
             };
             window.open(urls[command.split(" ").find(key => urls[key])], '_blank');
             actionTaken = true;
@@ -247,11 +247,11 @@ const Dashboard = ({ showSidebar }) => {
                     <ul>
                         <li onClick={() => navigate('/text-to-speech')}>Text to Speech</li>
                         <li onClick={() => navigate('/speech-to-text')}>Speech to Text</li>
-                        <li onClick={() => window.location.href="https://accessibilitybot-multilanguage.vercel.app/"}>MultiLanguage</li>
+                        <li onClick={() => window.location.href="https://accessibility-bot-multilang.vercel.app/"}>MultiLanguage</li>
                         <li onClick={() => navigate('/image-to-text')}>Image to Text</li>
-                        <li onClick={() => window.location.href="https://accessibilitybot-summarizethetext.vercel.app/"}>Summarize the Text</li>
-                        <li onClick={() => window.location.href="https://accessibilitybot-paraphrase.vercel.app/"}>Paraphrase or Simple Text</li>
-                        <li onClick={() => window.location.href="https://accessibilitybot-intercativedictionary.vercel.app/"}>Interactive Dictionary</li>
+                        <li onClick={() => window.location.href="https://accessibility-bot-text-summarize.vercel.app/"}>Summarize the Text</li>
+                        <li onClick={() => window.location.href="https://accessibility-bot-text-paraphrase.vercel.app/"}>Paraphrase or Simple Text</li>
+                        <li onClick={() => window.location.href="https://accessibility-bot-interactive-dictionary.vercel.app/"}>Interactive Dictionary</li>
                         <li onClick={() => navigate('/keyboardshortcuts')}>Keyboard Shortcuts</li>
                     </ul>
                 </div>
