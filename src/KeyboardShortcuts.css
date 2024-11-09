@@ -22,7 +22,7 @@ h1 {
 
 .shortcut-item {
     padding: 8px 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #000;
 }
 
 .shortcut-key {
@@ -42,4 +42,14 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: #dfdfdf;
     font-family: Arial, sans-serif;
+}
+
+/* Hyphen styling */
+.shortcut-item .hyphen {
+    color: black; /* Default color for bright mode */
+}
+
+/* Change hyphen color in night mode */
+.night-mode .shortcut-item .hyphen {
+    color: #000; /* Change to a light color for night mode */
 }

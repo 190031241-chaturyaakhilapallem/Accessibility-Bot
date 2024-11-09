@@ -2,33 +2,33 @@ import React from 'react';
 import './KeyboardShortcuts.css';
 
 const shortcuts = [
-    { keys: "Alt+K", description: "KeyBoard Shortcuts" },
-    { keys: "Ctrl+G", description: "Google" },
-    { keys: "Ctrl+I", description: "Instagram" },
-    { keys: "Ctrl+Y", description: "Twitter" },
-    { keys: "Ctrl+Z", description: "Threads" },
-    { keys: "Ctrl+J", description: "Jira" },
-    { keys: "Ctrl+A", description: "Atlassian" },
-    { keys: "Alt+G", description: "Github" },
-    { keys: "Ctrl+V", description: "Vercel" },
-    { keys: "Ctrl+L", description: "LinkedIn" },
-    { keys: "Ctrl+F", description: "Facebook" },
-    { keys: "Ctrl+Y", description: "Youtube" },
-    { keys: "Ctrl+m", description: "Toggle Mode" },
-    { keys: "Alt+L", description: "Language Selection" },
-    { keys: "Ctrl+D", description: "Interactive Dictionary" },
-    { keys: "Alt+S", description: "Speech to Text" },
-    { keys: "Alt+N", description: "Text to Speech" },
-    { keys: "Ctrl+M", description: "Text Summarization" },
-    { keys: "Ctrl+P", description: "Paraphrasing" },
-    { keys: "Alt+f", description: "Image to Text Conversion" },
-    { keys: "Alt+P", description: "Navigate to Profile" },
-    { keys: "Alt+H", description: "Navigate to Help" },
-    { keys: "Alt+O", description: "Navigate to Home" },
-    { keys: "Ctrl+Up Arrow", description: "Increase Font Size" },
-    { keys: "Ctrl+Down Arrow", description: "Decrease Font Size" },
-    { keys: "Ctrl+Shift+Up Arrow", description: "Increase Contrast" },
-    { keys: "Ctrl+Shift+Down Arrow", description: "Decrease Contrast" }
+    { keys: "Alt + k", description: "KeyBoard Shortcuts" },
+    { keys: "Ctrl + g", description: "Google" },
+    { keys: "Ctrl + i", description: "Instagram" },
+    { keys: "Ctrl + y", description: "Twitter" },
+    { keys: "Ctrl + z", description: "Threads" },
+    { keys: "Ctrl + j", description: "Jira" },
+    { keys: "Ctrl + a", description: "Atlassian" },
+    { keys: "Alt + g", description: "Github" },
+    { keys: "Ctrl + v", description: "Vercel" },
+    { keys: "Ctrl + l", description: "LinkedIn" },
+    { keys: "Ctrl + f", description: "Facebook" },
+    { keys: "Ctrl + b", description: "Youtube" },
+    { keys: "Ctrl + m", description: "Toggle Mode" },
+    { keys: "Alt + l", description: "Language Selection" },
+    { keys: "Ctrl + d", description: "Interactive Dictionary" },
+    { keys: "Alt + s", description: "Speech to Text" },
+    { keys: "Alt + n", description: "Text to Speech" },
+    { keys: "Alt + m", description: "Text Summarization" },
+    { keys: "Ctrl + p", description: "Paraphrasing" },
+    { keys: "Alt + f", description: "Image to Text Conversion" },
+    { keys: "Alt + p", description: "Navigate to Profile" },
+    { keys: "Alt + c", description: "Navigate to Change Password" },
+    { keys: "Alt + h", description: "Navigate to Help" },
+    { keys: "Alt + z", description: "Logout" },
+    { keys: "Alt + o", description: "Navigate to Delete Account" },
+    { keys: "Ctrl + Up Arrow", description: "Increase Font Size" },
+    { keys: "Ctrl + Down Arrow", description: "Decrease Font Size" }
 ];
 
 const KeyboardShortcuts = () => {
@@ -38,7 +38,9 @@ const KeyboardShortcuts = () => {
             <ul className="shortcuts-list">
                 {shortcuts.map((shortcut, index) => (
                     <li key={index} className="shortcut-item">
-                        <span className="shortcut-key">{shortcut.keys}</span> - <span className="description">{shortcut.description}</span>
+                        <span className="shortcut-key">{shortcut.keys}</span>
+                        <span className="hyphen"> - </span> 
+                        <span className="description">{shortcut.description}</span>
                     </li>
                 ))}
             </ul>
