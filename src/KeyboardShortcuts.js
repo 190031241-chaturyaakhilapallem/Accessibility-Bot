@@ -26,9 +26,7 @@ const shortcuts = [
     { keys: "Alt + c", description: "Navigate to Change Password" },
     { keys: "Alt + h", description: "Navigate to Help" },
     { keys: "Alt + z", description: "Logout" },
-    { keys: "Alt + o", description: "Navigate to Delete Account" },
-    { keys: "Ctrl + Up Arrow", description: "Increase Font Size" },
-    { keys: "Ctrl + Down Arrow", description: "Decrease Font Size" }
+    { keys: "Alt + o", description: "Navigate to Delete Account" }
 ];
 
 const KeyboardShortcuts = () => {
