@@ -76,7 +76,7 @@
 /* Sidebar styling */
 .sidebar {
     background-color: #FFFFFF;
-    padding: 5px;
+    padding: 10px;
     width: 209px;
     height: auto; /* Remove the height calculation to make it fit the content */
     max-height: 450px; /* Set a fixed maximum height */
