@@ -117,7 +117,7 @@
     align-items: center;
     gap: 20px;
     
-    background-color: #42e9de;
+   /*  background-color: #42e9de; */
 }
 .result img {
     width: 40px;
