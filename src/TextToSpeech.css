@@ -127,3 +127,34 @@ input[type="file"]::file-selector-button {
   border-radius: 5px;
   cursor: pointer;
 }
+
+
+.text-box label {
+  color: #333; /* Darker text color for better contrast */
+  background-color: transparent; /* Optional: Add a contrasting background if needed */
+}
+
+.upload-container label {
+  color: #333; /* Darker text color for better contrast */
+}
+
+/* Add specific styles for button contrast */
+button {
+  color: rgb(111, 102, 102);
+  background-color: #007bff; /* Blue background with high contrast text */
+  border: 1px solid #0056b3; /* Optional for button clarity */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover for better visual feedback */
+}
+.text-to-speech-container label {
+  color: #333; /* Darker text for better contrast */
+  font-weight: bold; /* Optional: Make it bold for better readability */
+}
+
+.text-box {
+  background-color: #fff; /* Ensure the background is white */
+  color: #333; /* Ensure the text in the input has good contrast */
+  border: 1px solid #ccc; /* Optional: Add a border for clarity */
+}

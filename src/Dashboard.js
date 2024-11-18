@@ -232,6 +232,10 @@ const Dashboard = ({ showSidebar }) => {
         overflow: "hidden",
       }}
     >
+      {/* Add the page heading */}
+      <header className="dashboard-header">
+        <h1 className="dashboard-title">Accessibility Dashboard</h1>
+      </header>
       <div className="navbar" style={{ fontSize: `${zoomLevel * 1.0}rem` }}>
         <img src={botImage} alt="Bot Logo" className="bot-logo" />
         <div className="nav-items">
@@ -253,8 +257,8 @@ const Dashboard = ({ showSidebar }) => {
                   Zoom In
                 </div>
                 <div onClick={handleZoomOut}>
-                  <img src={zoomOutIcon} alt="Zoom Out" className="zoom-icon" />{" "}
-                  Zoom Out
+                  <img src={zoomOutIcon} alt="" className="zoom-icon" /> Zoom
+                  Out
                 </div>
               </div>
             )}
@@ -262,13 +266,13 @@ const Dashboard = ({ showSidebar }) => {
           <div className="nav-item" onClick={toggleNightMode}>
             <img
               src={isNightMode ? nightModeIcon : brightModeIcon}
-              alt={isNightMode ? "Night Mode" : "Bright Mode"}
+              alt=""
               className="nav-icon"
             />
-            {isNightMode ? "NIGHT MODE" : "BRIGHT MODE"}
+            {isNightMode ? "Light Mode" : "Dark Mode"}
           </div>
           <div className="nav-item" onClick={toggleAccountDropdown}>
-            <img src={accountIcon} alt="Your Account" className="nav-icon" />
+            <img src={accountIcon} alt="" className="nav-icon" />
             YOUR ACCOUNT
             {isAccountDropdownOpen && (
               <div className="account-dropdown">
@@ -294,7 +298,7 @@ const Dashboard = ({ showSidebar }) => {
             )}
           </div>
           <div className="nav-item" onClick={handleLogout}>
-            <img src={logoutIcon} alt="Logout" className="nav-icon" />
+            <img src={logoutIcon} alt="" className="nav-icon" />
             LOGOUT
           </div>
         </div>

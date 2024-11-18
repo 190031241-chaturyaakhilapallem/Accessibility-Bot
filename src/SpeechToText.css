@@ -9,9 +9,7 @@
   color: white;
 }
 
-h1 {
-  color: white;
-}
+
 
 .mic-container {
   display: flex;
@@ -59,3 +57,16 @@ h1 {
 p{
   color:#333;
 }
+
+/* Light mode styles */
+.light-mode .h1 {
+  color: black; /* Black text for light mode */
+  transition: color 0.3s ease-in-out; /* Smooth color transition */
+}
+
+/* Dark mode styles */
+.dark-mode .h1 {
+  color: white; /* White text for dark mode */
+  transition: color 0.3s ease-in-out; /* Smooth color transition */
+}
+
