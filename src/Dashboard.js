@@ -240,15 +240,11 @@ const Dashboard = ({ showSidebar }) => {
             HOME
           </div>
           <div className="nav-item" onClick={() => navigate("/help")}>
-            <img src={helpIcon} alt="Help" className="nav-icon" />
+            <img src={helpIcon} alt="" className="nav-icon" />
             HELP
           </div>
           <div className="nav-item zoom-dropdown" onClick={toggleDropdown}>
-            <img
-              src={zoomInIcon}
-              alt="Text Magnification"
-              className="nav-icon"
-            />
+            <img src={zoomInIcon} alt="" className="nav-icon" />
             Text Magnification
             {isDropdownOpen && (
               <div className="zoom-dropdown-content">
